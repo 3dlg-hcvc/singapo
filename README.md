@@ -11,10 +11,7 @@ Preprint
 
 [Website](https://3dlg-hcvc.github.io/singapo/) | [Arxiv](!) 
 
-<video autoplay loop muted control>
-  <source src="docs/static/videos/anim.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![animation](docs/static/images/anim.gif)
 
 
 
