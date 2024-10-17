@@ -5,7 +5,7 @@
 
 **SINGAPO**: **Sin**gle Image Controlled **G**eneration of **A**rticulated **P**arts in **O**bject
 
-[Jiayi Liu](https://sevenljy.github.io/), [Denys Iliash](), [Manolis Savva](https://msavva.github.io/), [Ali Mahdavi-Amiri](https://www.sfu.ca/~amahdavi/)
+[Jiayi Liu](https://sevenljy.github.io/), [Denys Iliash](), [Angel X. Chang](https://angelxuanchang.github.io/), [Manolis Savva](https://msavva.github.io/), [Ali Mahdavi-Amiri](https://www.sfu.ca/~amahdavi/)
 
 Preprint
 
