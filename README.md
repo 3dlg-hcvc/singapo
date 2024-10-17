@@ -11,7 +11,7 @@ Preprint
 
 [Website](https://3dlg-hcvc.github.io/singapo/) | [Arxiv](!) 
 
-![animation](docs/static/images/anim.gif)
+![teaset](docs/static/images/teaser.png)
 
 
 
