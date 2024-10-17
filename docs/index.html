@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SINGAPO: Single Image Controlled Generation of Articulated Parts in Object">
+  <meta name="keywords" content="SINGAPO, Articulated Objects, Single Image, Articulated Parts, Image">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SINGAPO: Single Image Controlled Generation of Articulated Parts in Object</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics !!!!!!Change this!!!!!! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <div class="navbar-menu"></div>
+  <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    <a class="navbar-item" href="https://sevenljy.github.io/" style="color:rgb(126, 137, 185)">
+      <span class="icon">
+        <i class="fas fa-home"></i>
+      </span>
+    </a>
+
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link">
+        More Research
+      </a>
+      <div class="navbar-dropdown">
+        <a class="navbar-item" href="https://3dlg-hcvc.github.io/paris/" style="color:rgb(126, 137, 185)">
+          PARIS
+        </a>
+        <a class="navbar-item" href="https://3dlg-hcvc.github.io/cage/" style="color:rgb(126, 137, 185)">
+          CAGE
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <span class="title-color">SINGAPO</span>: <span class="title-color">Sin</span>gle Image Controlled <span
+                class="title-color">G</span>eneration of <span class="title-color">A</span>rticulated <span
+                class="title-color">P</span>arts in <span class="title-color">O</span>bject
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://sevenljy.github.io/">Jiayi Liu</a>,</span>
+              <span class="author-block">
+                <a href="">Denys Iliash</a>,</span>
+              <span class="author-block">
+                <a href="https://msavva.github.io/">Manolis Savva</a>,</span>
+              <span class="author-block">
+                <a href="https://www.sfu.ca/~amahdavi/">Ali Mahdavi-Amiri</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Simon Fraser University</span>
+            </div>
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block" style="color:#efcc3e">ICCV 2023</span>
+            </div> -->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2308.07391" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://youtu.be/tDSrROPCgUc" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/3dlg-hcvc/singapo"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <!-- <span class="link-block">
+                <a href="https://aspis.cmpt.sfu.ca/projects/paris/dataset.zip"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div>
+        <b>TL;DR</b>: We present a generative method to reconstruct 3D articulated objects from an image observing the
+        object in the resting state from a random view.
+        Our goal is to generate objects that are visually consistent with the input image and kinematically plausible.
+      </div>
+      <video poster="" id="teaser" autoplay muted loop playsinline>
+        <source src="./static/videos/anim.mov" type="video/mp4" height="100%">
+      </video>
+      <div class="column has-text-centered">
+        <div>Our method can generate objects with varying part geometry and motion to account for the ambiguity in the
+          input image.</div>
+        <img src="./static/images/teaser.png" alt="Teaser." / style="max-width: 88%;">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We address the challenge of creating 3D assets for household articulated objects from a single image.
+              Prior work on articulated object creation either requires multi-view multi-state input,
+              or only allows coarse control over the generation process.
+              These limitations hinder the scalability and practicality for articulated object modeling.
+            </p>
+            <p>
+              In this work, we propose a method to generate articulated objects from a single image.
+              Observing the object in a resting state from an arbitrary view, our method generates an articulated object
+              that is visually consistent with the input image.
+              To capture the ambiguity in part shape and motion posed by a single view of the object,
+              we design a diffusion model that learns the plausible variations of objects in terms of geometry and
+              kinematics.
+            </p>
+            <p>
+              To tackle the complexity of generating structured data with attributes in multiple domains, we design a
+              pipeline that produces articulated objects from high-level structure to geometric details in a
+              coarse-to-fine manner, where we use a part connectivity graph and part abstraction as proxies.
+            </p>
+            <div class="column has-text-centered">
+              <img src="./static/images/overview.png" class="interpolation-image" alt="Overview of the pipeline." /
+                style="max-width: 62%;">
+            </div>
+            <p>
+              Our experiments show that our method outperforms the state-of-the-art in articulated object creation by a
+              large margin in terms of the generated object realism, resemblance to the input image, and reconstruction
+              quality.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/tDSrROPCgUc?rel=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <!-- Methods. -->
+          <div class="content has-text-justified">
+            <h3 class="title is-3">Methods Overview</h3>
+            <!-- <img src="./static/images/pipeline.png"  alt="Method pipeline."/> -->
+            <figure style="float: center; margin-bottom:0; margin-right:0"></figure>
+            <img src="./static/images/pipeline.png" alt="Method pipeline.">
+            </figure>
+            <p>
+              Our method takes an object image as input and generates attributes of articulated parts,
+              which are used to assemble the object via part mesh retrieval. We design a DDPM-based model for
+              part generation, where each part is represented by a set of shape and motion attributes.
+              The generation is guided by (1) a part connectivity graph extracted using GPT-4o and
+              (2) image patch features of the input image encoded by DINOv2.
+            </p>
+            <p>
+              Our denoising network is built on layers of attention blocks, each of which consists of three <span
+                style="background-color:rgb(197,231,251)">self-attentions</span> with different masking strategies and
+              one <span style="background-color:rgb(255, 231, 143)">cross-attention</span> modules.
+              The graph constraint is injected into the graph relation module by converting to an adjacency matrix as
+              the attention mask.
+              The patch features act as the keys and values in the image cross attention (ICA) to condition the part
+              arrangement.
+            </p>
+          </div>
+
+          <div class="content has-text-justified">
+            <p>
+              It is interesting to observe that each part is learned to focus on its relevant patches in the image
+              during cross attention (as shown in the visualization below), indicating that each part is anchoring a
+              specific region of the image during generation.
+              This part-patch correspondence is learned without any explicit supervision during training, eliminating
+              the need for taking part detection or segmentation as input.
+            </p>
+            <figure style="float: center; margin-bottom:0; margin-top:0">
+              <img src="./static/images/attention.png" alt="Attention visualization." style="width:40%">
+            </figure>
+
+          </div>
+          <!--/ Methods. -->
+
+          <!-- Comparison. -->
+          <div class="content has-text-justified">
+            <h3 class="title is-3"><br>Qualitative Comparison</h3>
+            <p>
+              We compare our method with (1) <a href="https://urdformer.github.io/">URDFormer</a> and (2) NAP-ICA (we
+              plug in our ICA module to <a href="https://www.cis.upenn.edu/~leijh/projects/nap/">NAP</a> to enable NAP
+              with image-conditioning capability).
+              We train all methods on the same training data collected from <a
+                href="https://sapien.ucsd.edu/browse">PartNet-Mobility</a> dataset with several augmentation strategies
+              (please see paper appendix for more details).
+            </p>
+            <p>
+              Here we show the comparison on the PartNet-Mobility dataset.
+              Incorrect prediction part connectivity graph is denoted in red box.
+              The color of the nodes in the graph corresponds to the color of the parts in the object.
+            </p>
+            <img src="./static/images/qual_pm.png" alt="Qualitative comparison on PartNet-Mobility" />
+            <p>
+              <br>We also show the comparison on the <a href="https://3dlg-hcvc.github.io/s2o/">ACD</a> dataset in a
+              zero-shot manner.
+            </p>
+            <p>
+              <img src="./static/images/qual_acd.png" alt="Qualitative comparison on ACD" />
+            </p>
+          </div>
+        </div>
+        <!--/ Comparison. -->
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+      @article{jiayi2024singapo,
+          author    = {Liu, Jiayi and Iliash, Denys and Savva, Manolis and Mahdavi-Amiri, Ali},
+          title     = {SINGAPO}: Single Image Controlled Generation of Articulated Parts in Object,
+          year      = {2024},
+          journal   = {arXiv preprint arXiv:xxxx}
+      }
+      </code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/3dlg-hcvc/paris" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+              The template is borrowed from <a href="https://nerfies.github.io/">Nerfies</a>.
+              Please check out their great work if you find it helpful as well.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
