@@ -9,7 +9,7 @@
 
 Preprint
 
-[Website](https://3dlg-hcvc.github.io/singapo/) | [Arxiv](!) 
+[Website](https://3dlg-hcvc.github.io/singapo/) | [Arxiv](https://arxiv.org/pdf/2410.16499) 
 
 ![teaset](docs/static/images/teaser.png)
 
