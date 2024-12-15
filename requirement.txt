@@ -1,0 +1,13 @@
+lightning==2.3.3
+numpy==1.26.4
+wandb
+omegaconf
+diffusers
+imageio
+plotly
+pyrender
+open3d
+trimesh
+numpy-quaternion
+pygraphviz
+openai

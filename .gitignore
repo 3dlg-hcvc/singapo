@@ -162,3 +162,14 @@ cython_debug/
 #.idea/
 
 .DS_Store
+
+# pretrained checkpoints
+pretrained/
+# experiment folder
+exps/
+# api key
+.env
+# demo ouput
+demo/demo_output/
+# bash scipts
+bashes/

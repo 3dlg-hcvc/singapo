@@ -1,0 +1,87 @@
+name: singapo
+version: v1.0
+
+data:
+  name: dm_singapo
+  root: ../data   # root directory of the dataset
+  batch_size: 20  # batch size for training
+  num_workers: 8  # number of workers for data loading
+  K: 32    # maximum number of nodes (parts) in the graph (object)
+  split_file: data/data_split.json
+
+system:
+  name: sys_singapo
+  exp_dir: exps/${name}/${version}
+  data_root: ${data.root}
+  n_time_samples: 16
+  loss_fg_weight: 0.01
+  img_drop_prob: 0.1    # image dropout probability, for classifier free training
+  guidance_scaler: 0.5  # scaling factor for guidance on the image during inference
+  graph_drop_prob: 0.5  # graph dropout probability, for classifier free training
+
+  model:
+    name: denoiser
+    in_ch: 6
+    attn_dim: 128
+    n_head: 4
+    n_layers: 6
+    dropout: 0.1
+    K: ${data.K}
+    img_emb_dims: [768, 128]
+    cat_drop_prob: 0.5      # object category dropout probability, for classifier free training
+
+  scheduler:  # scheduler for the diffusion model
+    name: ddpm
+    config:
+      num_train_timesteps: 1000
+      beta_schedule: linear
+      prediction_type: epsilon
+
+  lr_scheduler_adapter: # lr scheduler for the new modules on top of the base model
+    name: LinearWarmupCosineAnnealingLR
+    warmup_epochs: 3
+    max_epochs: ${trainer.max_epochs}
+    warmup_start_lr: 1e-6
+    eta_min: 1e-5
+
+  optimizer_adapter: # optimizer for the new modules on top of the base model
+    name: AdamW
+    args:
+      lr: 5e-4
+      betas: [0.9, 0.99]
+      eps: 1.e-15
+
+  lr_scheduler_cage: # lr scheduler for modules in the base model
+    name: LinearWarmupCosineAnnealingLR
+    warmup_epochs: 3
+    max_epochs: ${trainer.max_epochs}
+    warmup_start_lr: 1e-6
+    eta_min: 1e-5
+
+  optimizer_cage: # optimizer for modules in the base model
+    name: AdamW
+    args:
+      lr: 5e-5
+      betas: [0.9, 0.99]
+      eps: 1.e-15
+
+checkpoint:
+  dirpath: ${system.exp_dir}/ckpts
+  save_top_k: -1
+  every_n_epochs: 50
+
+logger: # wandb logger
+  save_dir: ${system.exp_dir}/logs # directory to save logs
+  name: ${name}_${version}
+  project: SINGAPO
+
+trainer:
+  max_epochs: 200
+  log_every_n_steps: 100
+  limit_train_batches: 1.0
+  limit_val_batches: 1.0
+  check_val_every_n_epoch: 10
+  precision: 16-mixed
+  profiler: simple
+  num_sanity_val_steps: -1
+
