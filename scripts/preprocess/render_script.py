@@ -21,9 +21,6 @@ render.resolution_x = 512
 render.resolution_y = 512
 render.resolution_percentage = 100
 
-
-with open('utils/semantic_ref.json', 'r') as f:
-    semantic_ref = json.load(f)['fwd']
     
 def _add_lighting():
     # add a new light
@@ -104,8 +101,8 @@ def _render_scene(n_imgs=10):
     return data
 
 
-def _write_imgs(data_root, data):
-    save_img_dir = f'{data_root}/imgs'
+def _write_imgs(src_dir, data):
+    save_img_dir = os.path.join(src_dir, 'imgs')
     os.makedirs(save_img_dir, exist_ok=True)
 
     # rendered images
@@ -116,30 +113,43 @@ def _write_imgs(data_root, data):
         imageio.imwrite(f'{save_img_dir}/{fname}.png', rgb)
 
     
-def render_imgs(model_id, n_imgs=20, incremental=False):
+def render_imgs(src_dir, n_imgs=20, incremental=False):
     if incremental:
-        img_dir = f'/localhome/jla861/Documents/projects/im-gen-ao/data/{model_id}/imgs'
+        img_dir = os.path.join(src_dir, 'imgs')
         if not os.path.exists(img_dir):
             return
         if len(os.listdir(img_dir)) < n_imgs:
             return
-    
-    local_dir = '/localhome/jla861/Documents/projects/im-gen-ao/data'
+
     # load json file
-    with open(f'{local_dir}/{model_id}/object.json', 'r') as f:
+    with open(os.path.join(src_dir, 'object.json'), 'r') as f:
         src = json.load(f)
     # load textured objs into blender (w/ semantic+instance ids)
-    _load_objs(src['diffuse_tree'], f'{local_dir}/{model_id}')
+    _load_objs(src['diffuse_tree'], src_dir)
     # render images
     raw_data = _render_scene(n_imgs)
     # write images
-    _write_imgs(f'{local_dir}/{model_id}', raw_data)
+    _write_imgs(src_dir, raw_data)
     
         
 if __name__ == '__main__':
+    '''
+    Script to render images for the specified data.
+    
+    To run this script, use the following command:
+    ```
+    blenderproc run scripts/preprocess/render_script.py --data <path_to_data>
+    ```
+    
+    <path_to_data> should contain the following files:
+        - object.json: the json file that contains the part hierarchy and the paths to the textured objs
+        - objs: the directory that contains the textured objs
+    
+    The rendered images will be saved under <path_to_data>/imgs.
+    '''
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data', type=str, required=True, help='data subdirectory')
+    parser.add_argument('--data', type=str, required=True, help='path to the data directory')
     parser.add_argument('--n_imgs', type=int, default=20, help='number of images to render for each model')
     parser.add_argument('--incremental', action='store_true', help='whether to render images incrementally')
 
