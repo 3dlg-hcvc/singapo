@@ -7,7 +7,7 @@
 
 [Jiayi Liu](https://sevenljy.github.io/), [Denys Iliash](), [Angel X. Chang](https://angelxuanchang.github.io/), [Manolis Savva](https://msavva.github.io/), [Ali Mahdavi-Amiri](https://www.sfu.ca/~amahdavi/)
 
-Preprint
+ICLR 2025
 
 [Website](https://3dlg-hcvc.github.io/singapo/) | [Arxiv](https://arxiv.org/pdf/2410.16499) 
 
