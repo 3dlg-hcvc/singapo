@@ -289,8 +289,6 @@ class SingapoSystem(BaseSystem):
         self.save_val_img(out[:10], inputs['x'][:10], batch[1])
 
     def test_step(self, batch, batch_idx):
-        if batch_idx > 2:
-            return
         is_label_free = self.hparams.get("test_label_free", False)
         # prepare the inputs and GT
         inputs = self.prepare_inputs(batch, mode='test', n_samples=5)
