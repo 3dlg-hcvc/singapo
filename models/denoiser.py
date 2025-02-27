@@ -68,7 +68,7 @@ class Attn_Block(nn.Module):
             dropout=dropout,
             bias=attention_bias,
             cross_attention_norm="layer_norm",
-            processor=VisAttnProcessor(), # to be removed for release model
+            processor=VisAttnProcessor(), 
         )
 
         self.ff = FeedForward(

@@ -116,7 +116,7 @@ class MyAdaLayerNormZero(nn.Module):
 class VisAttnProcessor:
     r"""
     This code is adapted from diffusers.models.attention_processor.AttnProcessor.
-    Used for visualizing the attention maps when testing, NOT for training.
+    Used for visualizing the attention maps.
     """
 
     def __call__(
