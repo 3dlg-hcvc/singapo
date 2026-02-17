@@ -35,7 +35,8 @@ class SingapoSystem(BaseSystem):
         # load the weights
         self.model.load_state_dict(state_dict, strict=False) 
         # separate the weights of CAGE and our new modules
-        self.cage_params = self.adapter_params = []
+        self.cage_params = []
+        self.adapter_params = []
         for name, param in self.model.named_parameters():
             if "img" in name or "norm5" in name:
                 self.adapter_params.append(param)
