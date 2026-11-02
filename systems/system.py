@@ -28,7 +28,7 @@ class SingapoSystem(BaseSystem):
         self.save_hyperparameters()
 
     def load_cage_weights(self, pretrained_ckpt=None):
-        ckpt = torch.load(pretrained_ckpt)
+        ckpt = torch.load(pretrained_ckpt, weights_only=True)
         state_dict = ckpt["state_dict"]
         # remove the "model." prefix from the keys
         state_dict = {k.replace("model.", ""): v for k, v in state_dict.items()}
