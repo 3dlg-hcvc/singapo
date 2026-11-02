@@ -162,7 +162,7 @@ def post_process(output, cond, save_root, gt_data_root, visualize=False):
 def load_model(ckpt_path, config):
     print('Loading model from checkpoint...')
     model = Denoiser(config)
-    state_dict = torch.load(ckpt_path)['state_dict']
+    state_dict = torch.load(ckpt_path, weights_only=True)['state_dict']
     state_dict = {k.replace("model.", ""): v for k, v in state_dict.items()}
     model.load_state_dict(state_dict)
     model.eval()
